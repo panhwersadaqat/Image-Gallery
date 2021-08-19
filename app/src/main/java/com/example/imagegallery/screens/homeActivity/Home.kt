@@ -54,16 +54,20 @@ class Home : BaseActivity(), HomeContract.View, ApiListener {
     fun getList(list: List<ImageModel>) {
 
         imageAdapter = RecyclerAdapterUtil(applicationContext, list, R.layout.img_item)
+
         imageAdapter!!.addOnDataBindListener { view: View?, imageModel: ImageModel, integer: Int?, integerMap: Map<Int, View> ->
             val binding: ImgItemBinding = DataBindingUtil.bind(view!!)!!
+            binding.property = imageModel
             binding.executePendingBindings()
             Glide.with(this).load(imageModel.urls.small)
                     .placeholder(R.drawable.ic_loading)
                     .error(R.drawable.ic_loading)
                     .into(binding.itmImg)
-            bi!!.rvImages.layoutManager =
-                    LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
-            bi!!.rvImages.adapter = imageAdapter
         }
+
+            bi!!.rvImages.layoutManager =
+                    LinearLayoutManager(applicationContext,RecyclerView.VERTICAL, false)
+            bi!!.rvImages.adapter = imageAdapter
+
     }
 }
