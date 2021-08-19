@@ -38,7 +38,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
-
         <variable
             name="view"
             type="com.example.imagegallery.screens.homeActivity.HomeContract.View"/>
@@ -46,6 +45,6 @@
         <variable
             name="presenter"
             type="com.example.imagegallery.screens.homeActivity.HomePresenter"/>
-
     </data>
+
 </layout>

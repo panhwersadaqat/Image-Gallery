@@ -1,6 +1,5 @@
-package com.example.imagegallery.networking.responses.model
+package com.example.imagegallery.networking.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.Expose
 
 /**

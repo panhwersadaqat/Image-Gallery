@@ -16,8 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NetController  private constructor() {
     private var mRetrofit: Retrofit? = null
     private var okHttpClient: OkHttpClient? = null
-    private var _userService: ImageApiService? = null
-
 
     val retrofit: Retrofit
 
@@ -29,7 +27,7 @@ class NetController  private constructor() {
 
                 mRetrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .client(httpClient) //.addConverterFactory(new NullOnEmptyConverterFactory())
+                    .client(httpClient)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
             }
@@ -47,11 +45,6 @@ class NetController  private constructor() {
                     .build()
             }
             return okHttpClient
-        }
-    val userService: ImageApiService?
-        get() {
-            if (_userService == null) _userService = retrofit!!.create(ImageApiService::class.java)
-            return _userService
         }
 
     companion object {

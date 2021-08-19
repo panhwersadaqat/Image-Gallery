@@ -1,7 +1,6 @@
 package com.example.imagegallery.networking.services
 
-import com.example.imagegallery.networking.responses.BaseResponse
-import com.example.imagegallery.networking.responses.model.ImageModel
+import com.example.imagegallery.networking.model.ImageModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

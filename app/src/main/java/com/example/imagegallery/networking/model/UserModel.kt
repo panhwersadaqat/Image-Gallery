@@ -1,4 +1,4 @@
-package com.example.imagegallery.networking.responses.model
+package com.example.imagegallery.networking.model
 
 import com.google.gson.annotations.Expose
 
@@ -11,5 +11,5 @@ data class UserModel(
     @Expose val id: String,
     @Expose val username: String,
     @Expose val name: String
-) //: Parcelable
+)
 

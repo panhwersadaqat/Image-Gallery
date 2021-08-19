@@ -1,4 +1,4 @@
-package com.example.imagegallery.networking.responses.model
+package com.example.imagegallery.networking.model
 
 import com.google.gson.annotations.Expose
 
@@ -13,4 +13,4 @@ data class ImageUrlsModel(
     @Expose val regular: String,
     @Expose val small: String,
     @Expose val thumb: String
-)// : Parcelable
+)
