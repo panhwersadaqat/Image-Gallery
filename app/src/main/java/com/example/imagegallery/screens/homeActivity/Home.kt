@@ -3,6 +3,7 @@ package com.example.imagegallery.screens.homeActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -13,7 +14,9 @@ import com.example.imagegallery.databinding.ActivityHomeBinding
 import com.example.imagegallery.databinding.ImgItemBinding
 import com.example.imagegallery.networking.responses.model.ImageModel
 import com.example.imagegallery.networking.services.ApiListener
+import com.example.imagegallery.utils.gone
 import com.example.imagegallery.utils.showToast
+import com.example.imagegallery.utils.visible
 import com.thetechnocafe.gurleensethi.liteutils.RecyclerAdapterUtil
 
 
@@ -31,22 +34,25 @@ class Home : BaseActivity(), HomeContract.View, ApiListener {
     }
 
     override fun setupViews() {
+        bi!!.progressImg.visible()
         presenter!!.image(this)
 
     }
 
     override fun success(strApiName: String?, response: Any?) {
-        showToast(this, "Success")
         val data: List<ImageModel> = response as List<ImageModel>
         getList(data)
-        imageAdapter!!.notifyDataSetChanged()
+        //imageAdapter!!.notifyDataSetChanged()
+        bi!!.progressImg.gone()
     }
 
     override fun error(strApiName: String?, error: String?) {
-        showToast(this, "error")
+        bi!!.progressImg.gone()
+        showToast(this, "${error}")
     }
 
     override fun failure(strApiName: String?, message: String?) {
+        bi!!.progressImg.gone()
         showToast(this, "${message}")
     }
 
@@ -59,7 +65,7 @@ class Home : BaseActivity(), HomeContract.View, ApiListener {
             binding.property = imageModel
             binding.executePendingBindings()
 
-            //progress bar
+            //progress bar Images
             val circularProgressDrawable = CircularProgressDrawable(this)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
@@ -71,7 +77,7 @@ class Home : BaseActivity(), HomeContract.View, ApiListener {
         }
 
             bi!!.rvImages.layoutManager =
-                    LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+                GridLayoutManager(applicationContext,2)
             bi!!.rvImages.adapter = imageAdapter
 
     }

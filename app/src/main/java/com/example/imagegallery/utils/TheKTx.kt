@@ -1,6 +1,7 @@
 package com.example.imagegallery.utils
 
 import android.content.Context
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -13,5 +14,13 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 
 fun showToast(context: Context,message: String) {
     Toast.makeText(context,message, Toast.LENGTH_SHORT).show()
+}
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
 }
 
