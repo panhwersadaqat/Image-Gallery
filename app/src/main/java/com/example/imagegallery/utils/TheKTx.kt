@@ -3,6 +3,7 @@ package com.example.imagegallery.utils
 import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 
 /**
  * Created by Sadaqat Panhwer

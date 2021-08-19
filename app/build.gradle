@@ -58,4 +58,7 @@ dependencies {
 
     implementation 'com.github.gurleensethi:LiteUtilities:v1.3.0'
 
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+
 }
